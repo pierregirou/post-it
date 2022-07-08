@@ -1,0 +1,29 @@
+.card{
+    width: 250px;
+    height: 150px;
+    padding: 25px;
+    border: 2px solid rgba(123, 116, 116, 0.485);
+    overflow: auto;
+    margin: 15px;
+    transition: 0.8s;
+    cursor: pointer;
+}
+
+.card:hover{
+    scale: 1.04;
+    transition: 0.8s;
+}
+
+
+mat-card-actions .btn-delete{
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+}
+
+
+mat-card-actions .btn-update{
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+}

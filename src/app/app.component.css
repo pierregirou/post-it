@@ -1,0 +1,14 @@
+.container{
+    padding: 2%;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.card-add-card{
+    width: 200px;
+    height: 100px;
+    padding: 50px;
+    border: 2px dashed rgba(123, 116, 116, 0.485);
+    margin: 15px;
+}

@@ -1,12 +1,13 @@
 
 <div class="cards" *ngFor="let post of posts, let i = index">
-  <mat-card class="example-card card">
+  <mat-card class="example-card card" [ngStyle]="{'backgroundColor': post.bgColor, 'color':post.color, 'borderColor':post.bgColor != '#ffffff' ? post.bgColor : 'grey'}">
     <mat-card-header>
-      <mat-card-title>{{i+1}} - {{post.title}}</mat-card-title>
+      <mat-card-title>#{{i+1}} - {{post.title}}</mat-card-title>
     </mat-card-header>
+    <p style="font-size: 10px;">{{post.date | date:'dd/MM/yy, hh:mm a'}}</p>
     <mat-card-content>
       <p>
-        {{post.shortDescription}}
+        {{post.description}}
       </p>
     </mat-card-content>
     <mat-card-actions>

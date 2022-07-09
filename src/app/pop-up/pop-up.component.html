@@ -1,0 +1,27 @@
+<h1 mat-dialog-title>New POST-IT</h1>
+  <div mat-dialog-content style="text-align:center">
+    <mat-form-field style="width: 100%;">
+      <input matInput placeholder="my new title" [(ngModel)]="data.title">
+    </mat-form-field>
+    <br>
+    <mat-form-field style="width: 100%;">
+      <textarea matInput placeholder="my new description" [(ngModel)]="data.description" name="" id="" cols="60" rows="10"></textarea>
+    </mat-form-field>
+    <mat-form-fild>
+        <mat-label for="color" style="margin:10px">Choise background color</mat-label>
+        <input  type="color" name="color" id="color" [(ngModel)]="data.bgColor">
+    </mat-form-fild>
+    <br>
+    <br>
+    <mat-form-fild>
+        <mat-label for="color" style="margin:10px">Choise text color</mat-label>
+        <input  type="color" name="textcolor" id="texcolor" [(ngModel)]="data.color" >
+    </mat-form-fild>
+    <mat-form-field style="width: 100%;">
+      <input matInput disabled type="datetime" ngModel="{{data.date | date:'dd/MM/yy, hh:mm a'}}" name="" id="">
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-flat-button color="warn" (click)="onNoClick()">No Thanks</button>
+    <button mat-flat-button color="accent" [mat-dialog-close]="data" cdkFocusInitial>Submit</button>
+  </div>

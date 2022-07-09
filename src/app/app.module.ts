@@ -1,12 +1,11 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddcardComponent } from './addcard/addcard.component';
 import { CardComponent } from './card/card.component';
-import { PopupComponent } from './popup/popup.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 //MATERIAL
 import { MatSliderModule } from '@angular/material/slider';
 import { MatButtonModule } from '@angular/material/button';
@@ -19,13 +18,17 @@ import { MatCardModule } from '@angular/material/card';
 
 //SERVICES
 import { PostsService } from './services/posts.service';
+import { PopUpComponent } from './pop-up/pop-up.component';
 
 @NgModule({
+  schemas: [
+  CUSTOM_ELEMENTS_SCHEMA
+  ],
   declarations: [
     AppComponent,
     AddcardComponent,
     CardComponent,
-    PopupComponent,
+    PopUpComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +46,6 @@ import { PostsService } from './services/posts.service';
   providers: [
     PostsService
   ],
-  
   bootstrap: [AppComponent]
 })
 export class AppModule { }

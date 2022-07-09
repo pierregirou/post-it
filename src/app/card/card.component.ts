@@ -1,7 +1,8 @@
-import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
-import { PostsService } from '../services/posts.service';
+import { PopUpComponent } from '../pop-up/pop-up.component';
+import { Posts, PostsService } from '../services/posts.service';
 
 @Component({
   selector: 'app-card',
@@ -13,7 +14,7 @@ export class CardComponent implements OnInit {
   posts: any
   postsSubscribtion: Subscription;
 
-  constructor(private postsService:PostsService) { 
+  constructor(private postsService:PostsService, private dialog:MatDialog) { 
 
     this.postsSubscribtion =  this.postsService.postsSubject.subscribe((data)=>{
       console.log(data);
@@ -29,12 +30,32 @@ export class CardComponent implements OnInit {
   }
 
   updatePost(myPost:any){
-    console.log(myPost);
-    this.postsService.updatePostService(myPost)
+    // console.log(myPost);
+    // this.postsService.updatePostService(myPost)
+    this.openDialog(myPost)
   }
 
+  openDialog(myPost:Posts): void {
+    const dialogRefUpdate = this.dialog.open(PopUpComponent, {
+      width: '450px',
+      disableClose: true,
+      data: {
+        id: myPost.id,
+        title: myPost.title, 
+        description: myPost.description, 
+        date: myPost.date, 
+        bgColor: myPost.bgColor, 
+        color: myPost.color}
+    });
+    dialogRefUpdate.afterClosed().subscribe(result => {
+      console.log('The dialog was closed for updating');
+      this.postsService.updatePostService(result)
+    });
+  }
+  
+
   deletePost(myPost:any){
-    console.log(myPost);
+    // console.log(myPost);
     this.postsService.deletePostService(myPost);
 
   }

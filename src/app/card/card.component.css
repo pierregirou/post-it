@@ -16,14 +16,18 @@
 
 
 mat-card-actions .btn-delete{
-    position: absolute;
+    /* position: absolute;
     bottom: 15px;
-    right: 15px;
+    right: 15px; */
+    float: right;
+    margin: 5px;
 }
 
 
 mat-card-actions .btn-update{
-    position: absolute;
+    /*position: absolute;
     bottom: 15px;
-    left: 15px;
+    left: 15px;*/
+    float: left;
+    margin: 5px;
 }

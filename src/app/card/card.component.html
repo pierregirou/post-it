@@ -4,11 +4,11 @@
     <mat-card-header>
       <mat-card-title>#{{i+1}} - {{post.title}}</mat-card-title>
     </mat-card-header>
+    <hr>
     <p style="font-size: 10px;">{{post.date | date:'dd/MM/yy, hh:mm a'}}</p>
     <mat-card-content>
-      <p>
-        {{post.description}}
-      </p>
+      <p [innerText]="post.description"></p>
+      <!-- <p [innerHTML]="post.description"></p> -->
     </mat-card-content>
     <mat-card-actions>
       <button mat-mini-fab color="primary" class="btn btn-update" (click)="updatePost(post)">

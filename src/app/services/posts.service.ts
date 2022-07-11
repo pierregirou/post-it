@@ -19,11 +19,11 @@ export class PostsService {
   posts:Array<Posts> = []
 
   constructor() {
-    let postsItemSession = sessionStorage.getItem('posts')
-   // console.log(postsItemSession);
+    let postsItemlocal = localStorage.getItem('posts')
+   // console.log(postsItemlocal);
     
-    if(postsItemSession != null){
-      this.posts = JSON.parse(postsItemSession)
+    if(postsItemlocal != null){
+      this.posts = JSON.parse(postsItemlocal)
     }
   }
 
@@ -35,14 +35,14 @@ export class PostsService {
                      color:newCard.color, 
                      date: newCard.date
                   })
-    sessionStorage.setItem('posts', JSON.stringify(this.posts))
+    localStorage.setItem('posts', JSON.stringify(this.posts))
     this.getPostService()
   }
 
   getPostService(){
-    let postsItemSession = sessionStorage.getItem('posts')
-    if(postsItemSession != null){
-      this.posts = JSON.parse(postsItemSession)
+    let postsItemlocal = localStorage.getItem('posts')
+    if(postsItemlocal != null){
+      this.posts = JSON.parse(postsItemlocal)
     }
     this.postsSubject.next(this.posts)
   }
@@ -55,7 +55,7 @@ export class PostsService {
         this.posts.splice(i, 1);
       }
      }
-    sessionStorage.setItem('posts', JSON.stringify(this.posts))
+    localStorage.setItem('posts', JSON.stringify(this.posts))
     this.getPostService()
   }
 
@@ -76,7 +76,7 @@ export class PostsService {
         
       }
      }
-    sessionStorage.setItem('posts', JSON.stringify(this.posts))
+    localStorage.setItem('posts', JSON.stringify(this.posts))
     this.getPostService()
   }
 }
